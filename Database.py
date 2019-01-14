@@ -10,7 +10,7 @@ class Dataset:
 	Data = pd.DataFrame()
 	Result = pd.DataFrame()
 	def __init__(self):
-		self.df = pd.read_csv("WPBC.csv",na_values = "?")
+		self.df = pd.read_csv("F:\\Machine Learning\\Research-Paper\\Database\\WPBC.csv",na_values = "?")
 
 	def DoFeatureScaling(self):
 		column_names = ['Outcome','Time','LymphNodeStatus','PermiterWorst','AreaSE','AreaWorst','MeanSmoothness','PerimeterSE','MeanPerimeter','TumorSize']
@@ -48,7 +48,7 @@ class Dataset:
 		columns = ['Time','LymphNodeStatus','PermiterWorst','AreaSE','AreaWorst','MeanSmoothness','PerimeterSE','MeanPerimeter','TumorSize']
 		return pd.DataFrame(data = np.array(imp.em(self.Data))  ,columns = columns)
 
-
+Dataframe = Dataset()
 
 
 
