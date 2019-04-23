@@ -8,6 +8,8 @@ Dataframe = Database.Dataset()
 
 min_df = Dataframe.DoFeatureScaling()
 min_df = Dataframe.DoLabelEncoding(min_df)
+
+
 Dataframe.SplitXY(min_df) 
 
 Dataframe.Data = Dataframe.EmputationMaximization()
