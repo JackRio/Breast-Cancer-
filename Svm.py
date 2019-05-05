@@ -28,17 +28,13 @@ def topDownApproach(Head_Data):
 	print("Final Result")
 	y_pred = svclassifier.predict(Head_Data)
 	print('Confusion Matrix',confusion_matrix(Dataframe.Result,y_pred))
-	print('Report',classification_report(Dataframe.Result,y_pred))
+	print('Report',classification_report(Dataframe.Result,y_pred)) # Check if you could use Guassian kernel
 
 
-Dataframe = Database.Dataset()
-
-min_df = Dataframe.DoFeatureScaling()
-min_df = Dataframe.DoLabelEncoding(min_df)
-Dataframe.SplitXY(min_df) 
-Dataframe.Data = Dataframe.EmputationMaximization()
-Dataframe.Data = Dataframe.standardizeData()
-
-topDownApproach(Dataframe.Data)
-
-
+Dataframe = Database.Dataset() 						# Crating a object of class Datast which is imported above
+min_df = Dataframe.DoFeatureScaling()				# Seperating and picking up columns which aare needed more info is in Database.py
+min_df= min_df.dropna(subset = ['LymphNodeStatus']) # Dropping instances which have NA values 4 instances dropped here
+min_df = Dataframe.DoLabelEncoding(min_df)			# Converting the values of outcome to 1/0 from N/R
+Dataframe.SplitXY(min_df) 							# Splitting into Dataframe.Result("Outcome column"),Dataframe.Data("All the features") 
+Dataframe.Data = Dataframe.standardizeData()		# Standardizing the data
+topDownApproach(Dataframe.Data)						# Calling the above function to apply Leave One Out method on Dataset

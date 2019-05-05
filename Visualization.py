@@ -1,39 +1,43 @@
-import Database
-import matplotlib.pyplot as plt 
+# import Database
+# import matplotlib.pyplot as plt 
+# import seaborn as sns
 
-columns = ['Time','LymphNodeStatus','PermiterWorst','AreaSE','AreaWorst','MeanSmoothness','PerimeterSE','MeanPerimeter','TumorSize']
-
-
-Dataframe = Database.Dataset()
-
-min_df = Dataframe.DoFeatureScaling()
-min_df = Dataframe.DoLabelEncoding(min_df)
+# columns = ['Time','LymphNodeStatus','PermiterWorst','AreaSE','AreaWorst','MeanSmoothness','PerimeterSE','MeanPerimeter','TumorSize']
 
 
-Dataframe.SplitXY(min_df) 
+# Dataframe = Database.Dataset()
 
-Dataframe.Data = Dataframe.EmputationMaximization()
+# min_df = Dataframe.DoFeatureScaling()
+# min_df = Dataframe.DoLabelEncoding(min_df)
+# Dataframe.SplitXY(min_df) 
+# Dataframe.Data = Dataframe.EmputationMaximization()
 
-x = 3
-y = 3
+# print(list(Dataframe.Data.columns))
+# # sns.heatmap(Dataframe.Data.corr())
+# # plt.clf()
 
-i = 0
-for column in Dataframe.Data:
-	ax = plt.subplot(x,y,i+1)
-	plt.plot(Dataframe.Data[column])
-	plt.legend([columns[i]])
-	i+=1
-plt.show()
+# plt.plot(Dataframe.Data['LymphNodeStatus'],Dataframe.Result,'ro')
+# plt.show()
+# x = 3
+# y = 3
 
-stdData = Dataframe.standardizeData()
+# i = 0
+# for column in Dataframe.Data:
+# 	ax = plt.subplot(x,y,i+1)
+# 	plt.plot(Dataframe.Data[column])
+# 	plt.legend([columns[i]])
+# 	i+=1
+# plt.show()
 
-i = 0
-for column in stdData:
-	ax = plt.subplot(x,y,i+1)
-	plt.plot(stdData[column])
-	plt.legend([columns[i]])
-	i+=1
-plt.show()
+# stdData = Dataframe.standardizeData()
+
+# i = 0
+# for column in stdData:
+# 	ax = plt.subplot(x,y,i+1)
+# 	plt.plot(stdData[column])
+# 	plt.legend([columns[i]])
+# 	i+=1
+# plt.show()
 
 
 
