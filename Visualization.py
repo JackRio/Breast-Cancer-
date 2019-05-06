@@ -1,6 +1,6 @@
-# import Database
-# import matplotlib.pyplot as plt 
-# import seaborn as sns
+import Database
+import matplotlib.pyplot as plt 
+import pandas as pd
 
 # columns = ['Time','LymphNodeStatus','PermiterWorst','AreaSE','AreaWorst','MeanSmoothness','PerimeterSE','MeanPerimeter','TumorSize']
 
@@ -38,7 +38,6 @@
 # 	plt.legend([columns[i]])
 # 	i+=1
 # plt.show()
-
 
 
 
