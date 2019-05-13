@@ -10,7 +10,7 @@ class Dataset:
 	Data = pd.DataFrame()
 	Result = pd.DataFrame()
 	def __init__(self):
-		self.df = pd.read_csv("F:\\Coding\\Machine Learning\\Research-Paper\\Database\\WPBC.csv",na_values = "?")
+		self.df = pd.read_csv("F:\\Coding\\Machine Learning\\Research-Paper\\alpha.csv",na_values = "?")
 
 	def DoFeatureScaling(self): 	
 		column_names = ['Outcome', 'MeanRadius', 'MeanPerimeter','MeanArea',  'SmoothnessSE', 'ConcavitySE', 'ConcavePointsSE','TumorSize', 'LymphNodeStatus']
@@ -54,3 +54,5 @@ class Dataset:
 # Dataframe.df = Dataframe.DoFeatureScaling() 
 # Dataframe.df = Dataframe.DoLabelEncoding(Dataframe.df)
 # Dataframe.df.to_csv("alpha.csv", index = False)
+
+

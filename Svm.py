@@ -48,7 +48,6 @@ def kFoldCrossValidation(Dataset):
 	Dataframe.Data = np.array(Dataframe.Data)
 	Dataframe.Result = np.array(Dataframe.Result)
 	for train,test in kfold.split(Dataset.Data):
-		print(Dataset.Data)
 		print('Train: ',train,' Test: ',test)
 		x_train, x_test, y_train, y_test = Dataset.Data[train], Dataset.Data[test], Dataset.Result[train], Dataset.Result[test]	
 		svclassifier.fit(x_train,y_train)
@@ -56,6 +55,23 @@ def kFoldCrossValidation(Dataset):
 		print("Confusion Matrix",confusion_matrix(y_test,y_pred))
 		print('Report',classification_report(y_test,y_pred))
 
+
+Dataframe = Database.Dataset()
+
+Dataframe.SplitXY(Dataframe.df)
+topDownApproach(Dataframe.Data) 
+
+""" FINAL RESULTS
+
+topDownApproach works good with result
+Confusion Matrix: 
+[148   0]
+[  4  42]
+
+				Prediction
+actual			no   	yes
+		no  	TN   	FP
+		yes 	FN   	TP
 
 # Precision - Precision is the ratio of correctly predicted positive observations to the total predicted positive observations. 
 # 			The question that this metric answer is of all passengers that labeled as survived, how many actually survived? 
@@ -76,11 +92,14 @@ def kFoldCrossValidation(Dataset):
 # F1 Score = 2*(Recall * Precision) / (Recall + Precision)
 
 
+Report:
+        		precision   recall   f1-score   support
 
-Dataframe = Database.Dataset()
-Dataframe.df = pd.read_csv('F:\\Coding\\Machine Learning\\Research-Paper\\alpha.csv')
-Dataframe.SplitXY(Dataframe.df)
-Dataframe.standardizeData()
+           			0       0.97      1.00      0.99       148
+           			1       1.00      0.91      0.95        46
 
-# randomizeSplit(Dataframe)
-kFoldCrossValidation(Dataframe)
+   micro avg       0.98     0.98      0.98       194
+   macro avg       0.99     0.96      0.97       194
+weighted avg       0.98     0.98      0.98       194
+
+"""
